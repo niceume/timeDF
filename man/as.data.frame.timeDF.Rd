@@ -18,7 +18,8 @@
   \item{row.names}{same as as.data.frame in base}
   \item{optional}{same as as.data.frame in base}
   \item{format}{character element that describes how times in timeDF are
-  converted to chracters}
+  converted to chracters. If "as_is" is specified, time objects are not
+  preserved without converting to characters.}
   \item{...}{Further arguments passed to or from other methods}
 }
 \value{
