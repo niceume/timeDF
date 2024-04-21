@@ -13,8 +13,12 @@ as.data.frame.timeDF = function( x, row.names = NULL, optional = FALSE,
     }
 
     time_var = attr(timeDF, "time_var")
-    time_str = format(timeDF[[time_var]], format)
-    timeDF[[time_var]] = time_str
+    if(format == "as_is"){
+        # nop
+    }else{
+        time_str = format(timeDF[[time_var]], format)
+        timeDF[[time_var]] = time_str
+    }
     attr(timeDF, "time_var") = NULL
 
     return(as.data.frame(timeDF, row.names, optional, ...))
