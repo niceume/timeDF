@@ -14,7 +14,9 @@ as.timeDF = function(df, time_var = "time", format = "%Y-%m-%d %H:%M:%S" ){
         result_time_vec = strptime( time_vec, format, tz = "UTC")
     }
     df[[time_var]] = result_time_vec
-    attr(df, "class") = c("timeDF", attr(df, "class"))
+    if( ! "timeDF" %in% attr(df, "class")){
+        attr(df, "class") = c("timeDF", attr(df, "class"))
+    }
     attr(df, "time_var") = time_var
     return( df )
 }
