@@ -261,12 +261,43 @@ Please note that when a time record of timeDF belongs to mutliple periods of per
 
 ## More tools for timeDF
 
+* time_vec(timeDF)
+
+This function returns time vector of timeDF.
+
+* tiem_var(timeDF)
+
+This function retuns the column name of times of timeDF.
+
+* select_timeDF(timeDF, colnames)
+
+This function function returns a new timeDF object with columns
+specified and the column holding time information.
+
+* sort_timeDF(timeDF, decreasing=)
+
+This function sorts records of timeDF.
+
+* validate_timeDF(timeDF, noerror=FALSE)
+
+validate_timeDF function checks whether the object is a valid timeDF
+object.
+
+* validate\_sorted\_timeDF(timeDF, noerror=FALSE)
+
+validate_timeDF function checks whether the object is a valid sorted
+timeDF object.
+
 * as.data.frame(timeDF)
 
 This function converts timeDF to data.frame
 
 
 ## More tools for periodDF
+
+* period_type(periodDF)
+
+This function returns the period type of periodDF.
 
 * vec_to_periodDF(vec, period_type, duration, units, format = "auto", labels = NULL, pre_margin = 0)
 
