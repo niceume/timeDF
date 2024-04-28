@@ -23,3 +23,7 @@ export("sort_timeDF")
 export("validate_timeDF")
 export("validate_sorted_timeDF")
 importFrom(utils, head, tail)
+
+export("listTimeDF_to_timeDF")
+export("split_timeDF_by_intervals")
+export("validate_listTimeDF")
