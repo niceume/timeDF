@@ -320,6 +320,29 @@ When periods share the same timing with their start and end, whether they are co
 This function converts period types of periodDF object. Conversions from "date" to "time", "time" to "date", "time" to "time_in_a_day" and "time_in_a_day" to "time" are supported.
 
 
+## Functions for a list of timeDF
+
+* validate_listTimeDF(listTimeDF, noerror=FALSE)
+
+validate_listTimeDF checks whether listTimeDF is a valid list of
+timeDF objects.
+
+
+* split\_timeDF\_by\_intervals(timeDF, byN, byUnits)
+
+This function splits timeDF into a list of timeDF objects by regular
+intervals. For example, if the interval is specified as two days,
+timeDF object is split by two day interval. The start time for this
+interval is decided by the minimum time and the interval unit in the
+original timeDF.
+
+
+* listTimeDF\_to\_timeDF(listTimeDF)
+
+listTimeDF\_to\_timeDF function combines timeDF objects into one
+timeDF.
+
+
 ## Website
 
 https://github.com/niceume/timeDF
