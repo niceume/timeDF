@@ -3,6 +3,11 @@ condense_periodDF = function(periodDF, open = TRUE, useData = "start"){
         stop("periodDF argument requires periodDF object")
     }
 
+    if( nrow(periodDF) < 1 ){
+        # When periodDF has no periods
+        return(periodDF)
+    }
+
     # if not sorted in increasing order
     if( is.unsorted(periodDF[[attr(periodDF, "start_var")]])){
         periodDF = sort_periodDF(periodDF, by = "start")
