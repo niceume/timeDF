@@ -265,9 +265,9 @@ Please note that when a time record of timeDF belongs to mutliple periods of per
 
 This function returns time vector of timeDF.
 
-* tiem_var(timeDF)
+* time_var(timeDF)
 
-This function retuns the column name of times of timeDF.
+This function retuns the column name of times stored in timeDF.
 
 * select_timeDF(timeDF, colnames)
 
