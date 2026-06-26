@@ -47,7 +47,7 @@ examine_with_time_periods_within_a_day = function( timeDF, periodDF, include,
     if(is.null(label_vec)){
         labels = as.character(seq(1, n_period))
     }else{
-        labels = label_vec
+        labels = as.character(label_vec)
     }
 
     result_list = list()

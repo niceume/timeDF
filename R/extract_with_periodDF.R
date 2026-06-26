@@ -39,7 +39,7 @@ extract_with_periodDF = function(timeDF, periodDF, include,
             result = list()
             n_result = length(result_bool_list)
             for( i in seq(1, n_result)){
-                label = label_vec[i]
+                label = names(result_bool_list)[i]
                 result[[label]] = timeDF[result_bool_list[[label]], ]
             }
         }

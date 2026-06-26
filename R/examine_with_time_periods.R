@@ -51,7 +51,7 @@ examine_with_time_periods = function( timeDF, periodDF, include,
         n_label = length(label_vec)
         result_list = list()
         for(i in seq(1, n_label)){
-            label = label_vec[i]
+            label = as.character(label_vec[i])
             times_within = as.logical(
                 .cpp_times_within_periods(time_vec_num,
                                           start_vec_num[i],
