@@ -1,5 +1,15 @@
 flag_with_periodDF = function(timeDF, periodDF, flag_var, include,
-                              modStart = 0, modEnd = 0, units = NULL){
+                              modStart = 0, modEnd = 0,
+                              modUnits = NULL,
+                              units = NULL # units will be deprecated
+                              ){
+    if(! is.null(units)){
+        warning("Units argument is deprecated. Use modUnits instead.")
+        if(is.null(modUnits)){
+            modUnits = units
+        }
+    }
+
     if( ! "timeDF" %in% class(timeDF) ){
         stop("timeDF argument requires timeDF object")
     }
@@ -11,10 +21,10 @@ flag_with_periodDF = function(timeDF, periodDF, flag_var, include,
     }
 
     if( is.null(attr(periodDF, "label_var")) ){
-        result_bool = extract_with_periodDF(timeDF, periodDF, include, outputAsBool = TRUE, modStart, modEnd, units)
+        result_bool = extract_with_periodDF(timeDF, periodDF, include, outputAsBool = TRUE, modStart, modEnd, modUnits)
         timeDF[[flag_var]] = result_bool
     }else{
-        result_bool_list = extract_with_periodDF(timeDF, periodDF, include, outputAsBool = TRUE, modStart, modEnd, units)
+        result_bool_list = extract_with_periodDF(timeDF, periodDF, include, outputAsBool = TRUE, modStart, modEnd, modUnits)
         labels = names(result_bool_list)
         flag_accum = rep(NA, nrow(timeDF))
         caution = FALSE

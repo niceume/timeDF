@@ -1,6 +1,16 @@
 extract_with_periodDF = function(timeDF, periodDF, include,
-                                 modStart = 0, modEnd = 0, units = NULL,
-                                 outputAsBool = FALSE){
+                                 modStart = 0, modEnd = 0,
+                                 modUnits = NULL,
+                                 outputAsBool = FALSE,
+                                 units = NULL # units will be deprecated
+                                 ){
+    if(! is.null(units)){
+        warning("Units argument is deprecated. Use modUnits instead.")
+        if(is.null(modUnits)){
+            modUnits = units
+        }
+    }
+
     if( ! "timeDF" %in% class(timeDF) ){
         stop("timeDF argument requires timeDF object")
     }
@@ -11,11 +21,11 @@ extract_with_periodDF = function(timeDF, periodDF, include,
     period_type = attr(periodDF, "period_type")
     if( is.null(attr(periodDF, "label_var")) ){
         if( period_type == "time"){
-            result_bool = examine_with_time_periods(timeDF, periodDF, include, modStart, modEnd, units)
+            result_bool = examine_with_time_periods(timeDF, periodDF, include, modStart, modEnd, modUnits)
         }else if(period_type == "date"){
-            result_bool = examine_with_date_periods(timeDF, periodDF, include, modStart, modEnd, units)
+            result_bool = examine_with_date_periods(timeDF, periodDF, include, modStart, modEnd, modUnits)
         }else if(period_type == "time_in_a_day"){
-            result_bool = examine_with_time_periods_within_a_day(timeDF, periodDF, include, modStart, modEnd, units)
+            result_bool = examine_with_time_periods_within_a_day(timeDF, periodDF, include, modStart, modEnd, modUnits)
         }
         if(outputAsBool){
             result = result_bool
@@ -27,11 +37,11 @@ extract_with_periodDF = function(timeDF, periodDF, include,
         end_vec = periodDF[[attr(periodDF, "end_var")]]
         label_vec = periodDF[[attr(periodDF, "label_var")]]
         if( period_type == "time"){
-            result_bool_list = examine_with_time_periods(timeDF, periodDF, include, modStart, modEnd, units)
+            result_bool_list = examine_with_time_periods(timeDF, periodDF, include, modStart, modEnd, modUnits)
         }else if(period_type == "date"){
-            result_bool_list = examine_with_date_periods(timeDF, periodDF, include, modStart, modEnd, units)
+            result_bool_list = examine_with_date_periods(timeDF, periodDF, include, modStart, modEnd, modUnits)
         }else if(period_type == "time_in_a_day"){
-            result_bool_list = examine_with_time_periods_within_a_day(timeDF, periodDF, include, modStart, modEnd, units)
+            result_bool_list = examine_with_time_periods_within_a_day(timeDF, periodDF, include, modStart, modEnd, modUnits)
         }
         if(outputAsBool){
             result = result_bool_list

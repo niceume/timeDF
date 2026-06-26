@@ -1,5 +1,6 @@
 examine_with_time_periods = function( timeDF, periodDF, include,
-                                     modStart = 0, modEnd = 0, units = NULL){
+                                     modStart = 0, modEnd = 0,
+                                     modUnits = NULL){
     if( ! "timeDF" %in% class(timeDF) ){
         stop("timeDF argument requires timeDF object")
     }
@@ -35,11 +36,11 @@ examine_with_time_periods = function( timeDF, periodDF, include,
     }
 
     if(modStart != 0 || modEnd != 0){
-        if(is.null(units)){
-            stop("units needs to be specified to modify starts or ends")
+        if(is.null(modUnits)){
+            stop("modUnits needs to be specified to modify starts or ends")
         }
-        start_vec_num = start_vec_num + convert_to_seconds(modStart, unitsFrom = units)
-        end_vec_num = end_vec_num + convert_to_seconds(modEnd, unitsFrom = units)
+        start_vec_num = start_vec_num + convert_to_seconds(modStart, unitsFrom = modUnits)
+        end_vec_num = end_vec_num + convert_to_seconds(modEnd, unitsFrom = modUnits)
     }
 
     if(is.null(label_vec)){

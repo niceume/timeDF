@@ -95,7 +95,7 @@ split_timeDF_by_intervals = function(timeDF,
                                                   include = "left",
                                                   modStart = modStart,
                                                   modEnd = modEnd,
-                                                  units = modUnits)
+                                                  modUnits = modUnits)
     return(extracted_timeDF_list)
 }
 

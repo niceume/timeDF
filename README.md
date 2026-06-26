@@ -152,7 +152,7 @@ time_in_a_day_periodDF_label = as.periodDF(period_time_in_day, "time_in_a_day", 
 
 ### 1. Extraction
 
-* extract_with_periodDF(timeDF, periodDF, include, modStart = 0, modEnd = 0, units = NULL, outputAsBool = FALSE)
+* extract_with_periodDF(timeDF, periodDF, include, modStart = 0, modEnd = 0, modUnits = NULL, outputAsBool = FALSE)
 
 This function extracts time records from timeDF object that are included within periods of periodDF object.
 
@@ -248,7 +248,7 @@ modStart and modEnd are added to these time objects when specified.
 
 ### 2. Flagging
 
-* flag_with_periodDF(timeDF, periodDF, flag_var, include, modStart = 0, modEnd = 0, units = NULL)
+* flag_with_periodDF(timeDF, periodDF, flag_var, include, modStart = 0, modEnd = 0, modUnits = NULL)
 
 Flag time records of timeDF object that are included within periods of periodDF object.
 

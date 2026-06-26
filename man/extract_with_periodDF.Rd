@@ -14,7 +14,7 @@ including only the left side, and "none" does not include any sides.
 }
 \usage{
 extract_with_periodDF(timeDF, periodDF, include, modStart = 0, modEnd = 0,
-units = NULL, outputAsBool = FALSE)
+modUnits = NULL, outputAsBool = FALSE, units = NULL)
 }
 \arguments{
   \item{timeDF}{timeDF object}
@@ -23,10 +23,11 @@ units = NULL, outputAsBool = FALSE)
     periods is included or not}
   \item{modStart}{values to be added for starts of periods.}
   \item{modEnd}{values to be added for ends of periods.}
-  \item{units}{units for values of modStart and modEnd}
+  \item{modUnits}{units for values of modStart and modEnd}
   \item{outputAsBool}{boolean value; if this is TRUE, the return value is
     a boolean vector or boolean vectors that represent(s) records to be
     extracted}
+  \item{units}{is replaced with modUnits. This argument will be deprecated.}
 }
 \value{
   If periodDF does not have labels, timeDF object or a boolean object is

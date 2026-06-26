@@ -1,5 +1,6 @@
 examine_with_time_periods_within_a_day = function( timeDF, periodDF, include,
-                                                  modStart = 0, modEnd = 0, units = NULL ){
+                                                  modStart = 0, modEnd = 0,
+                                                  modUnits = NULL){
     if( ! "timeDF" %in% class(timeDF) ){
         stop("timeDF argument requires timeDF object")
     }
@@ -12,10 +13,10 @@ examine_with_time_periods_within_a_day = function( timeDF, periodDF, include,
     time_offset_vec = (time_hour_vec * 60 + time_min_vec) * 60 + time_sec_vec
 
     if(modStart != 0 || modEnd != 0){
-        if(is.null(units)){
-            stop("units needs to be specified to modify starts or ends")
+        if(is.null(modUnits)){
+            stop("modUnits needs to be specified to modify starts or ends")
         }else{
-            periodDF = adjust_periodDF(periodDF, modStart, modEnd, units)
+            periodDF = adjust_periodDF(periodDF, modStart, modEnd, modUnits)
         }
     }
 

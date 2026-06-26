@@ -19,7 +19,7 @@ test_extract_with_periodDF = function(){
     periodTime = timeDF::as.periodDF(period_time, "time", label_var = "label")
     extractedWithTime = timeDF::extract_with_periodDF(timeDF, periodTime, include = "left",
                                                       modStart = -1, modEnd = +1,
-                                                      units = "hours")
+                                                      modUnits = "hours")
 
     period_date = data.frame(
         start = c("2023-11-01",
@@ -35,7 +35,7 @@ test_extract_with_periodDF = function(){
     periodDate = timeDF::as.periodDF(period_date, "date", label_var = "label")
     extractedWithDate = timeDF::extract_with_periodDF(timeDF, periodDate, include = "both",
                                                       modStart = -4, modEnd = +4,
-                                                      units = "hours")
+                                                      modUnits = "hours")
 
     period_time_in_day = data.frame(
         start = c("8:00",
@@ -47,7 +47,7 @@ test_extract_with_periodDF = function(){
     periodTimeInDay = timeDF::as.periodDF(period_time_in_day, "time_in_a_day", label_var = "label")
     extractedWithTimeInDay = timeDF::extract_with_periodDF(timeDF, periodTimeInDay, include = "left",
                                                            modStart = +2, modEnd = +2,
-                                                           units = "hours")
+                                                           modUnits = "hours")
 
     RUnit::checkEquals( is(extractedWithTime, "list"), TRUE )
     RUnit::checkEquals( is(extractedWithTime[["11-30"]], "timeDF"), TRUE )

@@ -10,7 +10,7 @@ as \code{\link{extract_with_periodDF}} function.
 }
 \usage{
 flag_with_periodDF(timeDF, periodDF, flag_var, include, modStart = 0,
-modEnd = 0, units = NULL)
+modEnd = 0, modUnits = NULL, units = NULL)
 }
 \arguments{
   \item{timeDF}{timeDF object}
@@ -21,7 +21,8 @@ modEnd = 0, units = NULL)
     periods is included or not}
   \item{modStart}{values to be added for starts of periods.}
   \item{modEnd}{values to be added for ends of periods.}
-  \item{units}{units for values of modStart and modEnd}
+  \item{modUnits}{units for values of modStart and modEnd}
+  \item{units}{is replaced with modUnits. This argument will be deprecated.}
 }
 \value{
   timeDF object flagged with labels

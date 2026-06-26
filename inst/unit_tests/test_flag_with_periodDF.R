@@ -21,7 +21,7 @@ test_flag_with_periodDF = function(){
                                                  flag_var = "flag",
                                                  include = "left",
                                                  modStart = -1, modEnd = +1,
-                                                 units = "hours")
+                                                 modUnits = "hours")
 
     period_date = data.frame(
         start = c("2023-11-01",
@@ -51,7 +51,7 @@ test_flag_with_periodDF = function(){
                                                       flag_var = "flag",
                                                       include = "left",
                                                       modStart = +2, modEnd = +2,
-                                                      units = "hours")
+                                                      modUnits = "hours")
 
     RUnit::checkEquals( is(flaggedWithTime, "timeDF"), TRUE )
     RUnit::checkEquals( is(flaggedWithDate, "timeDF"), TRUE )
